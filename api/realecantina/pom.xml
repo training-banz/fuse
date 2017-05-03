@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.sample</groupId>
+    <artifactId>realecantina-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <relativePath>../realecantina-parent</relativePath>
+  </parent>
+  <artifactId>realecantina</artifactId>
+  <packaging>bundle</packaging>
+  <name>RealeCantina</name>
+  <description>Reale Cantina Winery RESTful Service</description>
+<!--   <repositories> -->
+<!--     <repository> -->
+<!--       <id>redhat-ga-repository</id> -->
+<!--       <url>https://maven.repository.redhat.com/ga</url> -->
+<!--     </repository> -->
+<!--   </repositories> -->
+<!--   <pluginRepositories> -->
+<!--     <pluginRepository> -->
+<!--       <id>redhat-ga-repository</id> -->
+<!--       <url>https://maven.repository.redhat.com/ga</url> -->
+<!--     </pluginRepository> -->
+<!--   </pluginRepositories> -->
+  <build>
+    <defaultGoal>install</defaultGoal>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <version>${version.maven-bundle-plugin}</version>
+        <extensions>true</extensions>
+        <configuration>
+          <instructions>
+            <Bundle-SymbolicName>RealeCantina</Bundle-SymbolicName>
+            <Bundle-Name>Reale Cantina Winery RESTful Service</Bundle-Name>
+          </instructions>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

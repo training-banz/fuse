@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.fusesource.ide.launcher.camelContext">
+<booleanAttribute key="M2_DEBUG_OUTPUT" value="false"/>
+<stringAttribute key="M2_GOALS" value="clean package org.apache.camel:camel-maven-plugin:run"/>
+<booleanAttribute key="M2_NON_RECURSIVE" value="false"/>
+<booleanAttribute key="M2_OFFLINE" value="false"/>
+<stringAttribute key="M2_PROFILES" value=""/>
+<listAttribute key="M2_PROPERTIES"/>
+<stringAttribute key="M2_RUNTIME" value="EMBEDDED"/>
+<booleanAttribute key="M2_SKIP_TESTS" value="true"/>
+<intAttribute key="M2_THREADS" value="1"/>
+<booleanAttribute key="M2_UPDATE_SNAPSHOTS" value="false"/>
+<stringAttribute key="M2_USER_SETTINGS" value=""/>
+<booleanAttribute key="M2_WORKSPACE_RESOLUTION" value="false"/>
+<stringAttribute key="org.eclipse.debug.core.ATTR_REFRESH_SCOPE" value="${project}"/>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/realecantina"/>
+<listEntry value="/realecantina/src/main/resources/OSGI-INF/blueprint/camelContext.xml"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="4"/>
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="realecantina"/>
+<stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="/home/jboss/workspace103_FuseTraining/realecantina"/>
+<stringAttribute key="org.fusesource.ide.launcher.debug.jmx.uri" value="service:jmx:rmi:///jndi/rmi://localhost:1099/jmxrmi/camel"/>
+<stringAttribute key="org.fusesource.ide.launcher.debug.jmx.user" value=""/>
+<stringAttribute key="rider.file" value="/home/jboss/workspace103_FuseTraining/realecantina/src/main/resources/OSGI-INF/blueprint/blueprint.xml"/>
+</launchConfiguration>

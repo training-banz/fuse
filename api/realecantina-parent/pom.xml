@@ -1,0 +1,174 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.sample</groupId>
+	<artifactId>realecantina-parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<modules>
+		<module>../realecantina</module>
+	</modules>
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<properties>
+		<!-- https://maven.repository.redhat.com/ga/org/apache/camel/camel-maven-plugin/ -->
+		<!-- TODO update 2.17.0.redhat-630224 to 2.17.0.redhat-630254 -->
+		<camel.version>2.17.0.redhat-630187</camel.version>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<version.maven-bundle-plugin>3.2.0</version.maven-bundle-plugin>
+
+		<!-- check https://maven.repository.redhat.com/ga/org/jboss/fuse/bom/jboss-fuse-parent/ -->
+		<jboss.fuse.bom.version>6.3.0.redhat-187</jboss.fuse.bom.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.jboss.fuse.bom</groupId>
+				<artifactId>jboss-fuse-parent</artifactId>
+				<version>${jboss.fuse.bom.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-blueprint</artifactId>
+		</dependency>
+		<!-- for camel sql componet -->
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-sql</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-swagger-java</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-test-blueprint</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- add convert pojo to json -->
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-jackson</artifactId>
+		</dependency>
+		<!-- camel-restlet RESTエンドポイント定義で使用 -->
+		<!-- camel-restletはサードパーティのMavenリポを参照するため、除外 -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.apache.camel</groupId> -->
+<!-- 			<artifactId>camel-restlet</artifactId> -->
+<!-- 		</dependency> -->
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-jetty</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-netty4</artifactId>
+		</dependency>
+		
+		
+		<!-- camel-sql -->
+		<dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <version>1.4.195</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-dbcp</groupId>
+      <artifactId>commons-dbcp</artifactId>
+    </dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<!-- <version>1.16.16</version> --><!-- managed -->
+			<scope>provided</scope>
+			<!-- https://mvnrepository.com/artifact/junit/junit -->
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<!-- <version>4.12</version> --><!-- managed -->
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<defaultGoal>install</defaultGoal>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>${version.maven-bundle-plugin}</version>
+				<extensions>true</extensions>
+				<!-- <configuration> -->
+				<!-- <instructions> -->
+				<!-- <Bundle-SymbolicName>sample-custom-iterator</Bundle-SymbolicName> -->
+				<!-- <Bundle-Name>Empty Camel Blueprint Example -->
+				<!-- [sample-custom-iterator]</Bundle-Name> -->
+				<!-- </instructions> -->
+				<!-- </configuration> -->
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.0.1</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.camel</groupId>
+				<artifactId>camel-maven-plugin</artifactId>
+				<version>${camel.version}</version>
+				<configuration>
+					<useBlueprint>true</useBlueprint>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.10.4</version>
+				<configuration>
+					<author>false</author><!-- true,false -->
+					<source>1.8</source>
+					<show>private</show><!-- private,protected,public -->
+					<encoding>UTF-8</encoding>
+					<charset>UTF-8</charset>
+					<docencoding>UTF-8</docencoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
