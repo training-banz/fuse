@@ -23,8 +23,8 @@
 </listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="realecantina"/>
-<stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="/home/jboss/workspace103_FuseTraining/realecantina"/>
+<stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="${project_loc:realecantina}"/>
 <stringAttribute key="org.fusesource.ide.launcher.debug.jmx.uri" value="service:jmx:rmi:///jndi/rmi://localhost:1099/jmxrmi/camel"/>
 <stringAttribute key="org.fusesource.ide.launcher.debug.jmx.user" value=""/>
-<stringAttribute key="rider.file" value="/home/jboss/workspace103_FuseTraining/realecantina/src/main/resources/OSGI-INF/blueprint/blueprint.xml"/>
+<stringAttribute key="rider.file" value="/home/jboss/git/fuse/api/realecantina/src/main/resources/OSGI-INF/blueprint/blueprint.xml"/>
 </launchConfiguration>
