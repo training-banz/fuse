@@ -25,30 +25,34 @@
     <bean class="org.apache.camel.component.sql.SqlComponent" id="sql">
         <property name="dataSource" ref="dataSource"/>
     </bean>
-    <camelContext id="myCamel"
-        trace="false" xmlns="http://camel.apache.org/schema/blueprint">
+    <camelContext id="myCamel" trace="false" xmlns="http://camel.apache.org/schema/blueprint">
         <restConfiguration apiContextListing="true"
-            apiContextPath="api-docs" component="jetty" bindingMode="json"
-            contextPath="realecantina/rest" enableCORS="true" port="9091">
+            apiContextPath="api-docs" bindingMode="json"
+            component="jetty" contextPath="realecantina/rest"
+            enableCORS="true" port="9091">
             <dataFormatProperty key="prettyPrint" value="true"/>
             <!-- we want json output in pretty mode -->
             <!-- setup swagger api descriptions -->
             <apiProperty key="base.path" value="rest"/>
-            <apiProperty key="api.version" value="2.0"/><!-- 1.2.3 -->
+            <apiProperty key="api.version" value="2.0"/>
+            <!-- 1.2.3 -->
             <apiProperty key="api.title" value="Reale Cantina ワイン検索サービス"/>
             <apiProperty key="api.description" value="Reale Cantinaのバックヤードから、お好みのワインを検索することができます"/>
             <apiProperty key="api.contact.name" value="レッドハット グローバル プロフェッショナル サービス"/>
         </restConfiguration>
         <rest path="/winery">
             <description>ワインを探す</description>
-            <get consumes="application/json" produces="application/json" uri="/all" outType="java.util.Map[]">
+            <get consumes="application/json" outType="java.util.Map[]"
+                produces="application/json" uri="/all">
                 <description>全てのワインを表示</description>
                 <responseMessage message="All the wineries"/>
                 <to uri="direct:_get_wineries"/>
             </get>
-            <get consumes="application/json" produces="application/json" outType="java.util.Map[]">
+            <get consumes="application/json" outType="java.util.Map[]" produces="application/json">
                 <description>ワインの特徴で検索</description>
-                <param name="taste" type="query" description="ワインの味を指定 例: フルボディ,エレガント など" dataType="string"/>
+                <param dataType="string"
+                    description="ワインの味を指定 例: フルボディ,エレガント など"
+                    name="taste" type="query"/>
                 <responseMessage message="recommend the winery for you"/>
                 <to uri="direct:_get_wineries_by_taste"/>
             </get>
